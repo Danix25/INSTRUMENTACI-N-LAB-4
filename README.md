@@ -241,26 +241,26 @@ El sistema incluye indicadores visuales mediante LEDs para informar el estado de
 
 ### ¿Qué otras variables son críticas en el monitoreo neonatal?
 
--La humedad relativa es importante porque los neonatos, especialmente los prematuros, presentan una piel inmadura que favorece la pérdida de agua por evaporación. Un control inadecuado de la humedad puede provocar deshidratación y alteraciones en el equilibrio térmico. De hecho, la guía de laboratorio destaca la importancia de evaluar el impacto de variables como la temperatura, la humedad y el flujo de aire en la salud del neonato .
+- La humedad relativa es importante porque los neonatos, especialmente los prematuros, presentan una piel inmadura que favorece la pérdida de agua por evaporación. Un control inadecuado de la humedad puede provocar deshidratación y alteraciones en el equilibrio térmico. De hecho, la guía de laboratorio destaca la importancia de evaluar el impacto de variables como la temperatura, la humedad y el flujo de aire en la salud del neonato .
 
--El flujo de aire, el cual influye directamente en la distribución uniforme de la temperatura dentro de la incubadora. Un flujo inadecuado puede generar gradientes térmicos, afectando la estabilidad del ambiente interno.
+- El flujo de aire, el cual influye directamente en la distribución uniforme de la temperatura dentro de la incubadora. Un flujo inadecuado puede generar gradientes térmicos, afectando la estabilidad del ambiente interno.
 
--La frecuencia respiratoria constituye un parámetro fisiológico esencial, ya que permite evaluar el estado del sistema respiratorio del neonato. 
+- La frecuencia respiratoria constituye un parámetro fisiológico esencial, ya que permite evaluar el estado del sistema respiratorio del neonato. 
 
--La frecuencia cardíaca es una variable crítica para la evaluación del estado hemodinámico del neonato. Su monitoreo continuo permite detectar eventos como bradicardia o taquicardia, los cuales pueden comprometer la vida del paciente si no se identifican oportunamente.
+- La frecuencia cardíaca es una variable crítica para la evaluación del estado hemodinámico del neonato. Su monitoreo continuo permite detectar eventos como bradicardia o taquicardia, los cuales pueden comprometer la vida del paciente si no se identifican oportunamente.
 
--La saturación de oxígeno (SpO₂) es indispensable para garantizar una adecuada oxigenación de los tejidos. Niveles bajos pueden indicar hipoxia, mientras que niveles excesivos en neonatos prematuros pueden generar complicaciones como retinopatía del prematuro.
+- La saturación de oxígeno (SpO₂) es indispensable para garantizar una adecuada oxigenación de los tejidos. Niveles bajos pueden indicar hipoxia, mientras que niveles excesivos en neonatos prematuros pueden generar complicaciones como retinopatía del prematuro.
 
 ### ¿Qué haría falta para convertir el sistema desarrollado en una incubadora neonatal real?
 
 
-Se debería mejorar la precisión y confiabilidad de los sensores. Usar sensores como el DHT22 es bueno para prototipos, pero en aplicaciones clínicas se requieren sensores certificados de grado médico, con alta exactitud, estabilidad y tiempos de respuesta controlados. Asimismo, sería necesario incluir sensores adicionales como humedad relativa, concentración de oxígeno y flujo de aire, variables que, según la guía de laboratorio, influyen directamente en la salud del neonato .
+- Se debería mejorar la precisión y confiabilidad de los sensores. Usar sensores como el DHT22 es bueno para prototipos, pero en aplicaciones clínicas se requieren sensores certificados de grado médico, con alta exactitud, estabilidad y tiempos de respuesta controlados. Asimismo, sería necesario incluir sensores adicionales como humedad relativa, concentración de oxígeno y flujo de aire, variables que, según la guía de laboratorio, influyen directamente en la salud del neonato .
 
-Además el sistema de control debe cambiar a controladores PID o adaptativos, que permitan una regulación más precisa y continua de la temperatura. A diferencia del control ON/OFF implementado, estos métodos reducen las oscilaciones y mejoran la estabilidad térmica, lo cual es crítico en neonatos prematuros con limitada capacidad de termorregulación.
+- El sistema de control debe cambiar a controladores PID o adaptativos, que permitan una regulación más precisa y continua de la temperatura. A diferencia del control ON/OFF implementado, estos métodos reducen las oscilaciones y mejoran la estabilidad térmica, lo cual es crítico en neonatos prematuros con limitada capacidad de termorregulación.
 
-Se tiene que ver también el sistema de seguridad y redundancia ya que debería contar con alarmas auditivas y visuales ante condiciones críticas, así como sistemas redundantes que garanticen el funcionamiento continuo en caso de fallos. 
+- El sistema de seguridad y redundancia ya que debería contar con alarmas auditivas y visuales ante condiciones críticas, así como sistemas redundantes que garanticen el funcionamiento continuo en caso de fallos. 
 
-En la arquitectura del sistema, se requiere eliminar el uso de retardos bloqueantes y adoptar una programación en tiempo real, permitiendo la ejecución simultánea de múltiples tareas críticas.
+- En la arquitectura del sistema, se requiere eliminar el uso de retardos bloqueantes y adoptar una programación en tiempo real, permitiendo la ejecución simultánea de múltiples tareas críticas.
 
 ### ¿Qué semejanzas hay entre una incubadora neonatal y una servo-cuna?
 
