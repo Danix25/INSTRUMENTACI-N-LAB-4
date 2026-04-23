@@ -251,6 +251,24 @@ El sistema incluye indicadores visuales mediante LEDs para informar el estado de
 
 -La saturación de oxígeno (SpO₂) es indispensable para garantizar una adecuada oxigenación de los tejidos. Niveles bajos pueden indicar hipoxia, mientras que niveles excesivos en neonatos prematuros pueden generar complicaciones como retinopatía del prematuro.
 
+### ¿Qué haría falta para convertir el sistema desarrollado en una incubadora neonatal real?
+
+
+Se debería mejorar la precisión y confiabilidad de los sensores. Usar sensores como el DHT22 es bueno para prototipos, pero en aplicaciones clínicas se requieren sensores certificados de grado médico, con alta exactitud, estabilidad y tiempos de respuesta controlados. Asimismo, sería necesario incluir sensores adicionales como humedad relativa, concentración de oxígeno y flujo de aire, variables que, según la guía de laboratorio, influyen directamente en la salud del neonato .
+
+Además el sistema de control debe cambiar a controladores PID o adaptativos, que permitan una regulación más precisa y continua de la temperatura. A diferencia del control ON/OFF implementado, estos métodos reducen las oscilaciones y mejoran la estabilidad térmica, lo cual es crítico en neonatos prematuros con limitada capacidad de termorregulación.
+
+Se tiene que ver también el sistema de seguridad y redundancia ya que debería contar con alarmas auditivas y visuales ante condiciones críticas, así como sistemas redundantes que garanticen el funcionamiento continuo en caso de fallos. 
+
+En la arquitectura del sistema, se requiere eliminar el uso de retardos bloqueantes y adoptar una programación en tiempo real, permitiendo la ejecución simultánea de múltiples tareas críticas.
+
+### ¿Qué semejanzas hay entre una incubadora neonatal y una servo-cuna?
+
+Ambos dispositivos tienen como objetivo principal mantener la estabilidad térmica del neonato, proporcionando un entorno controlado que compense la limitada capacidad de termorregulación del recién nacido, en segundo lugar, ambos sistemas operan mediante mecanismos de control en lazo cerrado, donde la temperatura medida se compara con un valor de referencia, ajustando la acción de los actuadores para corregir desviaciones. 
+
+La integración de sistemas de monitoreo, que permiten supervisar variables fisiológicas y ambientales relevantes. Tanto la incubadora como la servo-cuna pueden incorporar sensores adicionales (como frecuencia cardíaca, saturación de oxígeno o peso), así como interfaces de visualización para el personal médico, también ambos dispositivos incluyen sistemas de alarma y seguridad, diseñados para alertar sobre condiciones anómalas, como sobrecalentamiento, fallas en sensores o interrupciones en el suministro eléctrico, garantizando la protección del neonato.
+
+
 # REFERENCIAS
 
 - [1] ScienceDirect, "Neonatal Incubator - an overview," ScienceDirect Topics, 2024. [En línea]. Disponible: https://www.sciencedirect.com/topics/nursing-and-health-professions/neonatal-incubator. [Accedido: 23-abr-2026].
