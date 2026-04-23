@@ -85,6 +85,172 @@ Para la medición del peso del neonato, se integró una celda de carga acoplada 
 Lo anterior permite obtener lecturas digitales precisas del estado del neonato, facilitando el seguimiento continuo de su crecimiento y desarrollo.
 
 
+## PARTE C
+
+```cpp
+#include <Wire.h>
+#include <U8g2lib.h>
+#include "DHT.h"
+#include "HX711.h"
+
+// OLED
+U8G2_SSD1306_128X64_NONAME_F_HW_I2C 
+u8g2(U8G2_R0, U8X8_PIN_NONE, 22, 21);
+
+// DHT22
+#define DHTPIN 4
+#define DHTTYPE DHT22
+DHT dht(DHTPIN, DHTTYPE);
+
+// Relés
+#define RELAY1 5
+#define RELAY2 18
+
+// LEDs
+#define LED_ROJO 25
+#define LED_VERDE 26
+
+// HX711
+#define DT 19
+#define SCK 23
+HX711 scale;
+
+bool calefactorON = true;
+bool ventiladorON = false;
+
+float factor_calibracion = -7050;
+
+unsigned long tiempoInicio;
+bool yaTarado = false;
+
+float temp = 0;
+
+void drawCentered(const char* text, int y) {
+  int w = u8g2.getStrWidth(text);
+  int x = (128 - w) / 2;
+  u8g2.drawStr(x, y, text);
+}
+
+void setup() {
+  Serial.begin(115200);
+
+  Wire.begin(21, 22);
+  u8g2.begin();
+  dht.begin();
+
+  pinMode(RELAY1, OUTPUT);
+  pinMode(RELAY2, OUTPUT);
+
+  pinMode(LED_ROJO, OUTPUT);
+  pinMode(LED_VERDE, OUTPUT);
+
+  digitalWrite(RELAY1, HIGH);
+  digitalWrite(RELAY2, LOW);
+
+  digitalWrite(LED_ROJO, LOW);
+  digitalWrite(LED_VERDE, LOW);
+
+  scale.begin(DT, SCK);
+  scale.set_scale(factor_calibracion);
+
+  tiempoInicio = millis();
+}
+
+void loop() {
+
+  // Tara
+  if (!yaTarado && millis() - tiempoInicio > 6000) {
+    if (scale.is_ready()) {
+      scale.tare(15);
+      yaTarado = true;
+    }
+  }
+
+  // Temperatura
+  float nuevaTemp = dht.readTemperature();
+  if (!isnan(nuevaTemp)) {
+    temp = nuevaTemp;
+  }
+
+  // Control temperatura
+  if (temp < 36) {
+    calefactorON = true;
+    ventiladorON = false;
+  } 
+  else if (temp > 37.5) {
+    calefactorON = false;
+    ventiladorON = true;
+  }
+
+  digitalWrite(RELAY1, calefactorON ? HIGH : LOW);
+  digitalWrite(RELAY2, ventiladorON ? HIGH : LOW);
+
+  // LED rango 36 - 37.5
+  if (temp >= 36 && temp <= 37.5) {
+    digitalWrite(LED_ROJO, LOW);
+    digitalWrite(LED_VERDE, HIGH);
+  } else {
+    digitalWrite(LED_ROJO, HIGH);
+    digitalWrite(LED_VERDE, LOW);
+  }
+
+  // Peso
+  float peso = 0;
+  if (scale.is_ready()) {
+    static float peso_filtrado = 0;
+    float lectura = scale.get_units(10);
+    peso_filtrado = 0.8 * peso_filtrado + 0.2 * lectura;
+    peso = peso_filtrado;
+  }
+
+  char tempStr[10];
+  char pesoStr[10];
+
+  dtostrf(temp, 4, 1, tempStr);
+  dtostrf(peso, 4, 1, pesoStr);
+
+  // OLED
+  u8g2.clearBuffer();
+  u8g2.setFont(u8g2_font_5x7_tr);
+
+  char linea1[30];
+  sprintf(linea1, "Temp: %s C", tempStr);
+  drawCentered(linea1, 25);
+
+  char linea2[30];
+  sprintf(linea2, "Peso: %s g", pesoStr);
+  drawCentered(linea2, 45);
+
+  u8g2.sendBuffer();
+
+  delay(2000);
+}
+```
+
+Se implementa un sistema embebido que monitorea y controla variables como temperatura y masa, utilizando una plataforma basada en microcontrolador. El sistema integra sensores, actuadores e interfaz de visualización, constituyendo una solución de control en lazo cerrado de tipo ON/OFF con realimentación.
+
+En primer lugar, el sistema adquiere la variable de temperatura mediante un sensor digital DHT22, el cual proporciona mediciones periódicas con una frecuencia aproximada de 0.5 Hz. Para garantizar la validez de los datos, se realiza una verificación mediante la función isnan().
+
+El control de temperatura se basa en una lógica ON/OFF con histéresis, estableciendo un rango de operación entre 36 °C y 37.5 °C. Cuando la temperatura desciende por debajo del límite inferior, se activa el calefactor; por el contrario, cuando supera el límite superior, se activa el sistema de ventilación. Dentro del rango definido, el sistema mantiene el último estado de los actuadores, lo cual evita conmutaciones rápidas y reduce el desgaste de los dispositivos. Este comportamiento corresponde a un controlador tipo disparador de Schmitt, ampliamente utilizado en sistemas donde se desea estabilidad frente a pequeñas perturbaciones.
+
+Para la medición de masa, el sistema emplea un módulo HX711 acoplado a una celda de carga. Se implementa un proceso de tara automática posterior al arranque del sistema, con un retardo de seis segundos para permitir la estabilización de la señal. Adicionalmente, se aplica un filtro digital de tipo pasa-bajos (IIR de primer orden).
+
+Este filtrado reduce significativamente el ruido en la señal de peso, mejorando la estabilidad de la medición y la confiabilidad de los datos mostrados.
+
+El sistema incluye indicadores visuales mediante LEDs para informar el estado de la temperatura. Un LED azul indica que la variable se encuentra dentro del rango de operación, mientras que un LED rojo señala condiciones fuera de especificación. Tambien, se implementa una interfaz gráfica mediante una pantalla OLED, en la cual se muestran los valores de temperatura y peso, mejorando la interacción con el usuario.
+
+### ¿Qué otras variables son críticas en el monitoreo neonatal?
+
+-La humedad relativa es importante porque los neonatos, especialmente los prematuros, presentan una piel inmadura que favorece la pérdida de agua por evaporación. Un control inadecuado de la humedad puede provocar deshidratación y alteraciones en el equilibrio térmico. De hecho, la guía de laboratorio destaca la importancia de evaluar el impacto de variables como la temperatura, la humedad y el flujo de aire en la salud del neonato .
+
+-El flujo de aire, el cual influye directamente en la distribución uniforme de la temperatura dentro de la incubadora. Un flujo inadecuado puede generar gradientes térmicos, afectando la estabilidad del ambiente interno.
+
+-La frecuencia respiratoria constituye un parámetro fisiológico esencial, ya que permite evaluar el estado del sistema respiratorio del neonato. 
+
+-La frecuencia cardíaca es una variable crítica para la evaluación del estado hemodinámico del neonato. Su monitoreo continuo permite detectar eventos como bradicardia o taquicardia, los cuales pueden comprometer la vida del paciente si no se identifican oportunamente.
+
+-La saturación de oxígeno (SpO₂) es indispensable para garantizar una adecuada oxigenación de los tejidos. Niveles bajos pueden indicar hipoxia, mientras que niveles excesivos en neonatos prematuros pueden generar complicaciones como retinopatía del prematuro.
+
 # REFERENCIAS
 
 - [1] ScienceDirect, "Neonatal Incubator - an overview," ScienceDirect Topics, 2024. [En línea]. Disponible: https://www.sciencedirect.com/topics/nursing-and-health-professions/neonatal-incubator. [Accedido: 23-abr-2026].
