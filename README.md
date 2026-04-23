@@ -34,3 +34,16 @@ Estos equipos poseen una serie de sistemas que tienen el objetivo principal de e
 
 ## Diseño del circuito de temperatura
 
+Para lograr una temperatura adecuada en una incubadora noenatal hecha a escala, se diseño un circuito eléctrico a modo de sistema de control tipo ON/OFF de temperatura, que permita mantener la variable térmica dentro de un rango fisiológico esctricto, comprendido entre los 36° C y 37,5° C, garantizando la estabilidad del sistema frente a perturbaciones externas. Esto se hizo a partir de un microcontrolador ESP32 y un sensor de temperatura DHT22, implementando una lógica de control gestionando una etapa de potencia con relevadores para regular los ciclos de calefacción y ventilación.
+
+<div align="center">
+<img width="1024" height="576" alt="image" src="https://github.com/user-attachments/assets/6d2667bc-d43c-461a-8c52-3cc52aa44f1e" />
+</div>
+
+## Diseño del circuito de peso
+
+El monitoreo del peso del neonato es un indicador clínico fundamental para evaluar su desarrollo y estado de salud. Para cumplir con este requerimiento, se diseñó un sistema de pesaje centrado en una celda de carga de 5 kg, la cual detecta cambios mecánicos mediante galgas extensiométricas. Para garantizar la fiabilidad de la medida, se integró un módulo de acondicionamiento de señal HX711, cuya resolución de 24 bits permite transformar las variaciones de microvoltios en datos digitales de alta precisión procesables por el microcontrolador.
+
+<div align="center">
+<img width="489" height="283" alt="image" src="https://github.com/user-attachments/assets/4cc03b1c-3750-46ac-98ca-81ebd1f981f9" />
+</div>
