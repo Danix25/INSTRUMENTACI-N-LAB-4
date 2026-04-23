@@ -85,7 +85,11 @@ Para la medición del peso del neonato, se integró una celda de carga acoplada 
 Lo anterior permite obtener lecturas digitales precisas del estado del neonato, facilitando el seguimiento continuo de su crecimiento y desarrollo.
 
 
+# REFERENCIAS
 
+- [1] ScienceDirect, "Neonatal Incubator - an overview," ScienceDirect Topics, 2024. [En línea]. Disponible: https://www.sciencedirect.com/topics/nursing-and-health-professions/neonatal-incubator. [Accedido: 23-abr-2026].
+
+- [2] J. Villalobos, "Partes de una incubadora neonatal," Prezi, 2018. [En línea]. Disponible: https://prezi.com/p/l6cj35j2nfv6/partes-de-una-incubadora-neonatal/. [Accedido: 23-abr-2026].
 
 
 
