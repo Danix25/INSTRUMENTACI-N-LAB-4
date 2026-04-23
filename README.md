@@ -10,23 +10,18 @@ Daniel Leonardo López Castillo
 
 ### Incubadora neonatal
 
-Las incubadores neonatales se definen como dispositivos que proporcionan soporte térmico a los bebés, controlando a su vez los niveles de oxígeno y humedad relativa, con el objetivo de crear un entorno seguro para los recien nacidos. En este equipo se incorporan microprocesadores para la gestión precisa de estos parámetros críticos y requieren mantenimiento regular para garantizar su seguridad y funcionamiento.
+Estos equipos incorporan diversos sistemas cuyo objetivo principal es emular las condiciones del entorno intrauterino, con el fin de garantizar la supervivencia y el adecuado desarrollo del neonato. A continuación, se describen los componentes principales de una incubadora neonatal:
 
-<div align="center">
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/bb638f9e-1878-45ec-ae0a-ea6f7b558ed1" />
-</div>
+-**Sistema de calefacción:** Constituye el componente esencial de la incubadora. Su función es mantener una temperatura estable y adecuada que simule las condiciones térmicas del útero materno. Para ello, se emplean elementos calefactores y sensores de temperatura que permiten regular el sistema, evitando tanto la hipotermia como el sobrecalentamiento del neonato.
 
-Estos equipos poseen una serie de sistemas que tienen el objetivo principal de emular el ambiente del vientre materno para asegurar la superviviencia del neonato. Las partes principales de una incubadora son:
+-**Control de humedad:** Este sistema es fundamental para el bienestar del recién nacido. Utiliza humidificadores automáticos y sensores que permiten mantener niveles óptimos de humedad relativa, con el propósito de prevenir la deshidratación y favorecer un entorno fisiológicamente adecuado.
 
-- **Sistema de calefacción:** Es el componente esencial de la incubadora neonatal. Su diseño hace que mantenga una temperatura constante y adecuada para simular el útero materno. En este sistema se emplean elementos calefactores y sensores de temperatura para garantizar que el neonato se mantenga en condiciones óptimas, previniendo hipotermia o un sobrecalentamiento.
+-**Sistema de oxigenoterapia:** La adecuada oxigenación es crítica en el cuidado neonatal, especialmente en pacientes que requieren soporte respiratorio. Este sistema integra reguladores de flujo, concentradores de oxígeno y dispositivos de monitoreo que permiten ajustar y controlar la concentración de oxígeno administrada, garantizando un suministro adecuado para el desarrollo del neonato.
 
-- **Control de humedad:** Este sistema es crucial para el bienestar del recien nacido. Aquí se usan humificadores automáticos y sensores para mantener un nivel óptimo de humedad, con el principal objetivo de prevenir la deshidratación y generar un ambiente sano.
+-**Monitoreo de signos vitales:** Este sistema permite la evaluación continua del estado fisiológico del recién nacido. Incluye dispositivos destinados a la medición de parámetros como la frecuencia cardíaca, la temperatura corporal y la saturación de oxígeno en sangre, lo cual resulta esencial para una atención oportuna y adecuada.
 
-- **Sistema de oxigenoterapia:** Mantener una buena oxigenación en las incubadores es fundamental para garantizar la vida del neonato, sobre todo para aquellos que requieren de soporte respiratorio. En este sistema actuan componentes reguladores de flujo, concentradores de oxígeno y monitores que permiten ajustar y controlar la concentración de oxígeno administrada, asegurando que el bebé reciba la cantidad necesaria para su desarrollo.
+-**Sistemas de seguridad:** Con el fin de garantizar la integridad del neonato, la incubadora dispone de mecanismos de seguridad que incluyen alarmas sonoras y visuales ante condiciones críticas, sistemas de bloqueo para prevenir manipulaciones no autorizadas y el uso de materiales biocompatibles, asegurando un entorno seguro y controlado.
 
-- **Monitoreo de signos vitales:** Este sistema es imprescindible en el cuidado neonatal, ya que permite la evaluación continua del estado de salud del recién nacido. Aquí se incluyen dispositivos específicos para medir parámetros como la frecuencia cardíaca, la temperatura corporal y la saturación de oxígeno en sangre, primordial para una atención adecuada y oportuna.
-
-- **Sistemas de seguridad:** Para garantizar la seguridad del neonato, la incubadora cuenta con alarmas sonoras y visuales para alertar cambios críticos, así como tambien un sistema de bloqueo para evitar manipulaciones no autorizadas y el uso de materiales no tóxicos para mantener un entorno saludable para el recién nacido.
 
 <div align="center">
 <img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/43f5dadd-2fb7-4256-ad31-eb5725884c9a" />
@@ -34,7 +29,10 @@ Estos equipos poseen una serie de sistemas que tienen el objetivo principal de e
 
 ### Diseño del circuito de temperatura
 
-Para lograr una temperatura adecuada en una incubadora noenatal hecha a escala, se diseño un circuito eléctrico a modo de sistema de control tipo ON/OFF de temperatura, que permita mantener la variable térmica dentro de un rango fisiológico esctricto, comprendido entre los 36° C y 37,5° C, garantizando la estabilidad del sistema frente a perturbaciones externas. Esto se hizo a partir de un microcontrolador ESP32 y un sensor de temperatura DHT22, implementando una lógica de control gestionando una etapa de potencia con relevadores para regular los ciclos de calefacción y ventilación.
+Para garantizar una temperatura adecuada en una incubadora neonatal a escala, se diseñó un circuito eléctrico basado en un sistema de control tipo ON/OFF, orientado a mantener la variable térmica dentro de un rango fisiológico estricto, comprendido entre 36 °C y 37,5 °C, asegurando la estabilidad del sistema frente a posibles perturbaciones externas.
+
+Este sistema fue implementado mediante el uso de un microcontrolador ESP32 y un sensor de temperatura DHT22, incorporando una lógica de control encargada de gestionar una etapa de potencia mediante relevadores, con el fin de regular los ciclos de calefacción y ventilación.
+
 
 <div align="center">
 <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/6d2667bc-d43c-461a-8c52-3cc52aa44f1e" />
@@ -42,7 +40,10 @@ Para lograr una temperatura adecuada en una incubadora noenatal hecha a escala, 
 
 ### Diseño del circuito de peso
 
-El monitoreo del peso del neonato es un indicador clínico fundamental para evaluar su desarrollo y estado de salud. Para cumplir con este requerimiento, se diseñó un sistema de pesaje centrado en una celda de carga de 5 kg, la cual detecta cambios mecánicos mediante galgas extensiométricas. Para garantizar la fiabilidad de la medida, se integró un módulo de acondicionamiento de señal HX711, cuya resolución de 24 bits permite transformar las variaciones de microvoltios en datos digitales de alta precisión procesables por el microcontrolador.
+El monitoreo del peso del neonato constituye un indicador clínico fundamental para la evaluación de su desarrollo y estado de salud. Para satisfacer este requerimiento, se diseñó un sistema de pesaje basado en una celda de carga de 5 kg, la cual permite detectar variaciones mecánicas mediante el uso de galgas extensiométricas.
+
+Con el fin de garantizar la fiabilidad de la medición, se incorporó un módulo de acondicionamiento de señal HX711, cuya resolución de 24 bits permite convertir las variaciones de microvoltios en datos digitales de alta precisión, los cuales pueden ser procesados adecuadamente por el microcontrolador.
+
 
 <div align="center">
 <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/4cc03b1c-3750-46ac-98ca-81ebd1f981f9" />
@@ -50,15 +51,42 @@ El monitoreo del peso del neonato es un indicador clínico fundamental para eval
 
 ## Parte B
 
-Para materializar el prototipo, se inició con el montaje estructural de la cabina de la incubadora, siendo el lugar para proteger al neonato. Aquí se tuvo como enfoque principal la integración de todos los sistemas previamente diseñados en un solo entorno funcional, asegurando que la estructura permita una distribución adecuada del calor y soporte para el sistema de pesaje. Además de esto, es importante evaluzar nuestro estudio con equipos comerciales para situar el desempeño y costos de este desarrollo frente a soluciones tecnológicas utilizadas actualmente en el sector.
+Para la materialización del prototipo, se inició con el montaje estructural de la cabina de la incubadora, concebida como el entorno destinado a la protección del neonato. En esta etapa, el enfoque principal estuvo orientado a la integración de todos los sistemas previamente diseñados en una única plataforma funcional, garantizando que la estructura permitiera una adecuada distribución térmica, así como el soporte mecánico necesario para el sistema de pesaje.
+
+Adicionalmente, resulta fundamental contrastar el desarrollo propuesto con equipos comerciales, con el propósito de evaluar su desempeño y costos en relación con las soluciones tecnológicas actualmente empleadas en el sector.
+
 
 ### Montaje de la cubierta
 
-en cuanto a la consturcción del entorno físico, se inició con el montaje de la cubierta protectora. Sabiendo que el diseño de este componente tiene el enfoque de garantizar la visibilidad hacia el interior para el seguimiento clínico, así como tambien su seguridad y protección, se usaron materialez que optimizaran la retención de calor. Para esto, se uso una caja plástica con medidas aproximadas de 35 cm x 22 cm x 24 cm. Este material fue seleccionado por su transparencia, lo cual asegura la visibilidad requerida constante del neonato. De igual manera, la ligereza y propiedades aislantes del polímero ayudan a reducir la disipación térmica, mientras que la tapa original se modifico para funcionar como base del mecanismo, permitiendo un acceso seguro al interior de la incubadora.
+En cuanto a la construcción del entorno físico, se inició con el montaje de la cubierta protectora. El diseño de este componente se orientó a garantizar la visibilidad hacia el interior para el seguimiento clínico, así como la seguridad y protección del neonato, empleando materiales que favorecieran la retención térmica.
+
+Para este propósito, se utilizó una caja plástica con dimensiones aproximadas de 35 cm × 22 cm × 24 cm. Este material fue seleccionado por su transparencia, lo que permite una visualización continua del neonato. Asimismo, la ligereza y las propiedades aislantes del polímero contribuyen a reducir la disipación de calor. Adicionalmente, la tapa original fue modificada para funcionar como base estructural del sistema, facilitando un acceso seguro al interior de la incubadora.
+
 
 <div align="center">
 <img width="300" height="250" alt="image" src="https://github.com/user-attachments/assets/a9ed2bc9-0696-4994-bb4a-94d849920171" />
 </div>
+
+### Montaje sistema de calefacción
+
+Para la regulación del clima interno, se implementó un sistema de transferencia de calor por convección, integrando el circuito de control desarrollado en la fase anterior. Este mecanismo emplea la acción conjunta de un elemento resistivo (bombillo) como fuente de generación térmica y un ventilador de 12 V encargado de distribuir el flujo de aire de manera uniforme, con el objetivo de mantener la temperatura dentro de un rango estable entre 36 °C y 37,5 °C.
+
+Con el fin de supervisar la variable térmica, se incorporó una interfaz basada en una pantalla OLED, la cual permite visualizar en tiempo real la temperatura interna de la incubadora. Adicionalmente, se implementaron dos indicadores luminosos (LED) para informar el estado del sistema: un LED rojo que señala condiciones fuera del rango óptimo y un LED azul que indica que la temperatura se encuentra dentro de los valores establecidos.
+
+<div align="center">
+<img width="464" height="441" alt="image" src="https://github.com/user-attachments/assets/259c4ae3-d46d-45a8-a330-8e17b29f237c" />
+</div>
+
+
+### Montaje sistema de pesaje
+
+Para la medición del peso del neonato, se integró una celda de carga acoplada a la estructura de la base, con el fin de estimar el peso del recién nacido de manera no invasiva. Este valor se visualiza en tiempo real a través de la pantalla OLED previamente implementada.
+
+Lo anterior permite obtener lecturas digitales precisas del estado del neonato, facilitando el seguimiento continuo de su crecimiento y desarrollo.
+
+
+
+
 
 
 
