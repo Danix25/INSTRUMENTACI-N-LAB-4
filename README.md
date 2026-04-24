@@ -22,7 +22,9 @@ Estos equipos incorporan diversos sistemas cuyo objetivo principal es emular las
 
 -**Sistemas de seguridad:** Con el fin de garantizar la integridad del neonato, la incubadora dispone de mecanismos de seguridad que incluyen alarmas sonoras y visuales ante condiciones críticas, sistemas de bloqueo para prevenir manipulaciones no autorizadas y el uso de materiales biocompatibles, asegurando un entorno seguro y controlado.
 
-
+<div align="center">
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/76e20320-f824-4a05-8220-3231b378b441" />
+</div>
 
 ### Diseño del circuito de temperatura
 
@@ -32,7 +34,7 @@ Este sistema fue implementado mediante el uso de un microcontrolador ESP32 y un 
 
 
 <div align="center">
-<img width="600" height="600" alt="Diagrama de Conexion" src="https://github.com/user-attachments/assets/3bf43457-5eae-496f-8d9e-76f6a03ae5ed" />
+<img width="600" height="400" alt="Diagrama de Conexion" src="https://github.com/user-attachments/assets/3bf43457-5eae-496f-8d9e-76f6a03ae5ed" />
 </div>
 
 ### Diseño del circuito de peso
