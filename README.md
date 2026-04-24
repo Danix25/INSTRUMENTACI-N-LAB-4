@@ -253,7 +253,7 @@ Por otro lado, el sistema también integra una pantalla OLED en la cual se visua
 <img width="464" height="464" alt="image" src="https://github.com/user-attachments/assets/cde06d92-010a-4ab9-be8b-7e2e8eb1130e" />
 </div>
 
-Por otro lado, en cuanto al circuito, inicialmente se empleó un transformador junto con un circuito fuente para obtener 12 VDC, los cuales se utilizaron para la alimentación del ventilador. Por otra parte, la ESP32 fue alimentada mediante una power bank a 5 V, la cual a su vez suministraba energía tanto a los sensores de temperatura y peso como a los módulos de relé.
+Finalmente, en cuanto al circuito, inicialmente se empleó un transformador junto con un circuito fuente para obtener 12 VDC, los cuales se utilizaron para la alimentación del ventilador. Por otra parte, la ESP32 fue alimentada mediante una power bank a 5 V, la cual a su vez suministraba energía tanto a los sensores de temperatura y peso como a los módulos de relé.
 
 Para la alimentación del bombillo, este se conectó directamente a 120 VAC provenientes de la toma eléctrica, la cual también alimenta el primario del transformador.
 
