@@ -83,6 +83,9 @@ Con el fin de supervisar la variable térmica, se incorporó una interfaz basada
   <img src="https://github.com/user-attachments/assets/ab0c1c44-29c5-4bf3-8c0a-142acee40a7e" width="400">
 </p>
 
+Como se puede observar, a 36,2 °C se encuentra encendido el LED azul, indicando que la temperatura está dentro del rango normal establecido. En cambio, a 37,6 °C se activa el LED rojo, lo que indica que la temperatura está fuera del rango establecido.
+
+Además, en la pantalla se puede visualizar la temperatura medida y la masa en tiempo real.
 
 ### Montaje sistema de pesaje
 
