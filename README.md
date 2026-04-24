@@ -96,6 +96,7 @@ Lo anterior permite obtener lecturas digitales precisas del estado del neonato, 
 
 
 
+### Costos
 
 El sistema construido se divide en tres componentes principales: electrónica, estructura física y parte eléctrica.
 
