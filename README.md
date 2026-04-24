@@ -70,12 +70,17 @@ Para este propósito, se utilizó una caja plástica con dimensiones aproximadas
 
 ### Montaje sistema de calefacción
 
-Para la regulación del clima interno, se implementó un sistema de transferencia de calor por convección, integrando el circuito de control desarrollado en la fase anterior. Este mecanismo emplea la acción conjunta de un elemento resistivo (bombillo) como fuente de generación térmica y un ventilador de 12 V encargado de distribuir el flujo de aire de manera uniforme, con el objetivo de mantener la temperatura dentro de un rango estable entre 36 °C y 37,5 °C.
+Para la regulación del clima interno, se implementó un sistema de control de temperatura basado en un elemento resistivo (bombillo) como fuente de generación de calor y un ventilador de 12 V como mecanismo de enfriamiento. El sistema opera de forma automática mediante un control por umbrales: el ventilador se activa cuando la temperatura supera los 37,5 °C para reducir el calor interno, y se desactiva cuando la temperatura desciende a 35,9 °C, momento en el cual el bombillo vuelve a encenderse para incrementar nuevamente la temperatura, manteniéndola dentro del rango establecido.
 
-Con el fin de supervisar la variable térmica, se incorporó una interfaz basada en una pantalla OLED, la cual permite visualizar en tiempo real la temperatura interna de la incubadora. Adicionalmente, se implementaron dos indicadores luminosos (LED) para informar el estado del sistema: un LED rojo que señala condiciones fuera del rango óptimo y un LED azul que indica que la temperatura se encuentra dentro de los valores establecidos.
+Con el fin de supervisar la variable térmica, se incorporó una interfaz basada en una pantalla OLED, la cual permite visualizar en tiempo real la temperatura interna de la incubadora. Adicionalmente, se implementaron dos indicadores luminosos (LED): un LED azul que se enciende cuando la temperatura se encuentra dentro del rango normal establecido (36 °C a 37,5 °C), y un LED rojo que indica condiciones fuera de dicho rango.
 
 <div align="center">
 <img width="464" height="441" alt="image" src="https://github.com/user-attachments/assets/259c4ae3-d46d-45a8-a330-8e17b29f237c" />
+</div>
+
+<div align="center">
+<img width="400" height="350" alt="image" src="https://github.com/user-attachments/assets/604aabbd-80be-4148-9d67-b5702ab73d03" />
+<img width="400" height="350" alt="image" src="https://github.com/user-attachments/assets/ab0c1c44-29c5-4bf3-8c0a-142acee40a7e" />
 </div>
 
 
