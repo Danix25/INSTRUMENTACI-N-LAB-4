@@ -93,6 +93,12 @@ Para la medición del peso del neonato, se integró una celda de carga acoplada 
 
 Lo anterior permite obtener lecturas digitales precisas del estado del neonato, facilitando el seguimiento continuo de su crecimiento y desarrollo.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a04c24f1-d167-4c7b-9d00-e43847a0f1a3" width="200">
+  <img src="https://github.com/user-attachments/assets/ab33b6c7-95ce-4935-86ca-8a48759a8925" width="200">
+</p>
+
+
 Durante la presentación, se corroboró el funcionamiento del sensor, evidenciando que al aplicar una pequeña carga se obtenían valores coherentes. Sin embargo, al incrementar significativamente el peso, las mediciones dejaron de ser consistentes.
 
 Esto se atribuye a que, para un funcionamiento óptimo, la celda de carga debe permanecer completamente fija y correctamente acoplada a la estructura. En nuestro caso, se utilizó cinta adhesiva para su sujeción, la cual se desprendió parcialmente al momento de aplicar la carga, impidiendo que el sensor se deformara de manera adecuada. Como consecuencia, se presentaron lecturas incorrectas o inconsistentes.
