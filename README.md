@@ -22,9 +22,8 @@ Estos equipos incorporan diversos sistemas cuyo objetivo principal es emular las
 
 -**Sistemas de seguridad:** Con el fin de garantizar la integridad del neonato, la incubadora dispone de mecanismos de seguridad que incluyen alarmas sonoras y visuales ante condiciones críticas, sistemas de bloqueo para prevenir manipulaciones no autorizadas y el uso de materiales biocompatibles, asegurando un entorno seguro y controlado.
 
-
 <div align="center">
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/43f5dadd-2fb7-4256-ad31-eb5725884c9a" />
+<img width="400" height="400" alt="Diagrama de Conexion" src="https://github.com/user-attachments/assets/3bf43457-5eae-496f-8d9e-76f6a03ae5ed" />
 </div>
 
 ### Diseño del circuito de temperatura
