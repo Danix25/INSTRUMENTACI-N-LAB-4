@@ -85,8 +85,52 @@ Para la medición del peso del neonato, se integró una celda de carga acoplada 
 Lo anterior permite obtener lecturas digitales precisas del estado del neonato, facilitando el seguimiento continuo de su crecimiento y desarrollo.
 
 <div align="center">
-<img width="960" height="1280" alt="image" src="https://github.com/user-attachments/assets/cde06d92-010a-4ab9-be8b-7e2e8eb1130e" />
+<img width="464" height="464" alt="image" src="https://github.com/user-attachments/assets/cde06d92-010a-4ab9-be8b-7e2e8eb1130e" />
 </div>
+
+
+
+
+El sistema construido se divide en tres componentes principales: electrónica, estructura física y parte eléctrica.
+
+
+| Componente            | Elementos incluidos                                          | Costo (COP)  |
+|----------------------|-------------------------------------------------------------|--------------|
+| **Parte electrónica**| DHT22, HX711, capacitores, LM317, resistencias, módulos relé | $60.900      |
+| **Caja (estructura)**| Caja plástica (40 × 20 × 22 cm)                             | $20.000      |
+| **Parte eléctrica**  | Bombillo de calor, roseta, cableado y enchufe               | $19.500      |
+| **TOTAL**            | Sistema completo                                            | **$100.400** |
+
+El costo total del sistema es de **$100.400 COP**, lo cual representa una solución de muy bajo costo frente a equipos médicos reales.
+
+- **Parte electrónica:** ≈ 60.6% del costo total  
+- **Estructura (caja):** ≈ 19.9%  
+- **Parte eléctrica:** ≈ 19.4%  
+
+### Comparación con incubadoras comerciales
+
+Las incubadoras neonatales comerciales (como las de Dräger, Instrumentalia S.A.S. y LEEX Medical) incluyen características avanzadas como:
+
+- Control de temperatura de alta precisión (PID)
+- Sensores múltiples (temperatura, humedad, SpO₂, ECG)
+- Control de oxígeno
+- Sistemas de humidificación
+- Alarmas y seguridad redundante
+- Diseño térmico especializado (doble pared)
+
+
+### Comparación general
+
+| Característica         | Sistema desarrollado | Incubadora comercial                 |
+|----------------------|--------------------|------------------------------------|
+| Costo                | ~$100.400 COP      | Millones de COP                    |
+| Control              | ON/OFF             | PID / avanzado                     |
+| Variables            | Temp, peso         | Temp, SpO₂, ECG, humedad, etc.     |
+| Seguridad            | Básica             | Alta (alarmas, redundancia)        |
+| Certificación        | No                 | Sí                                 |
+| Precisión            | Media-baja         | Alta                               |
+
+
 
 ## PARTE C
 
