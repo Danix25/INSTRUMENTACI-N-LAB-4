@@ -349,6 +349,8 @@ La integración de sistemas de monitoreo, que permiten supervisar variables fisi
 
 - [2] J. Villalobos, "Partes de una incubadora neonatal," Prezi, 2018. [En línea]. Disponible: https://prezi.com/p/l6cj35j2nfv6/partes-de-una-incubadora-neonatal/. [Accedido: 23-abr-2026].
 
+- ASTM International, "Standard Specification for Baby Incubators," ASTM F1100-90, 2022.
+
 
 
 
