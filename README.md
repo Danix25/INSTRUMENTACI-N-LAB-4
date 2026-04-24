@@ -94,6 +94,10 @@ Lo anterior permite obtener lecturas digitales precisas del estado del neonato, 
 <img width="464" height="464" alt="image" src="https://github.com/user-attachments/assets/cde06d92-010a-4ab9-be8b-7e2e8eb1130e" />
 </div>
 
+Durante la presentación, se corroboró el funcionamiento del sensor, evidenciando que al aplicar una pequeña carga se obtenían valores coherentes. Sin embargo, al incrementar significativamente el peso, las mediciones dejaron de ser consistentes.
+
+Esto se atribuye a que, para un funcionamiento óptimo, la celda de carga debe permanecer completamente fija y correctamente acoplada a la estructura. En nuestro caso, se utilizó cinta adhesiva para su sujeción, la cual se desprendió parcialmente al momento de aplicar la carga, impidiendo que el sensor se deformara de manera adecuada. Como consecuencia, se presentaron lecturas incorrectas o inconsistentes.
+
 
 
 ### Costos
