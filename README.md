@@ -101,52 +101,7 @@ Durante la presentación, se corroboró el funcionamiento del sensor, evidencian
 
 Esto se atribuye a que, para un funcionamiento óptimo, la celda de carga debe permanecer completamente fija y correctamente acoplada a la estructura. En nuestro caso, se utilizó cinta adhesiva para su sujeción, la cual se desprendió parcialmente al momento de aplicar la carga, impidiendo que el sensor se deformara de manera adecuada. Como consecuencia, se presentaron lecturas incorrectas o inconsistentes.
 
-
-
-### Costos
-
-El sistema construido se divide en tres componentes principales: electrónica, estructura física y parte eléctrica.
-
-
-| Componente            | Elementos incluidos                                          | Costo (COP)  |
-|----------------------|-------------------------------------------------------------|--------------|
-| **Parte electrónica**| DHT22, HX711, capacitores, LM317, resistencias, módulos relé | $60.900      |
-| **Caja (estructura)**| Caja plástica (40 × 20 × 22 cm)                             | $20.000      |
-| **Parte eléctrica**  | Bombillo de calor, roseta, cableado y enchufe               | $19.500      |
-| **TOTAL**            | Sistema completo                                            | **$100.400** |
-
-El costo total del sistema es de **$100.400 COP**, lo cual representa una solución de muy bajo costo frente a equipos médicos reales.
-
-- **Parte electrónica:** ≈ 60.6% del costo total  
-- **Estructura (caja):** ≈ 19.9%  
-- **Parte eléctrica:** ≈ 19.4%  
-
-### Comparación con incubadoras comerciales
-
-Las incubadoras neonatales comerciales (como las de Dräger, Instrumentalia S.A.S. y LEEX Medical) incluyen características avanzadas como:
-
-- Control de temperatura de alta precisión (PID)
-- Sensores múltiples (temperatura, humedad, SpO₂, ECG)
-- Control de oxígeno
-- Sistemas de humidificación
-- Alarmas y seguridad redundante
-- Diseño térmico especializado (doble pared)
-
-
-### Comparación general
-
-| Característica         | Sistema desarrollado | Incubadora comercial                 |
-|----------------------|--------------------|------------------------------------|
-| Costo                | ~$100.400 COP      | Millones de COP                    |
-| Control              | ON/OFF             | PID / avanzado                     |
-| Variables            | Temp, peso         | Temp, SpO₂, ECG, humedad, etc.     |
-| Seguridad            | Básica             | Alta (alarmas, redundancia)        |
-| Certificación        | No                 | Sí                                 |
-| Precisión            | Media-baja         | Alta                               |
-
-
-
-## PARTE C
+### Algoritmo
 
 ```cpp
 #include <Wire.h>
@@ -288,17 +243,54 @@ void loop() {
 }
 ```
 
-Se implementa un sistema embebido que monitorea y controla variables como temperatura y masa, utilizando una plataforma basada en microcontrolador. El sistema integra sensores, actuadores e interfaz de visualización, constituyendo una solución de control en lazo cerrado de tipo ON/OFF con realimentación.
+El código implementado en la ESP32 fue este, donde se realiza el control de una incubadora mediante la lectura de temperatura con un sensor DHT22 y la medición de peso con una celda de carga HX711. A partir de la temperatura medida, el sistema activa automáticamente un calefactor o un ventilador dependiendo del rango establecido: si la temperatura es menor a 36 °C se enciende el calefactor, y si supera los 37,5 °C se activa el ventilador para disminuir el calor interno. Además, se utilizan dos LEDs como indicadores de estado, donde el LED verde señala que la temperatura está dentro del rango normal (36 a 37,5 °C) y el LED rojo indica condiciones fuera de este.
 
-En primer lugar, el sistema adquiere la variable de temperatura mediante un sensor digital DHT22, el cual proporciona mediciones periódicas con una frecuencia aproximada de 0.5 Hz. Para garantizar la validez de los datos, se realiza una verificación mediante la función isnan().
+Por otro lado, el sistema también integra una pantalla OLED en la cual se visualizan en tiempo real tanto la temperatura como el peso medido, permitiendo un monitoreo continuo. La lectura del peso se filtra para obtener valores más estables y se realiza una tara automática al inicio para mejorar la precisión del sensor. En conjunto, el código permite el control y supervisión básica de las condiciones internas de la incubadora de forma automática.
 
-El control de temperatura se basa en una lógica ON/OFF con histéresis, estableciendo un rango de operación entre 36 °C y 37.5 °C. Cuando la temperatura desciende por debajo del límite inferior, se activa el calefactor; por el contrario, cuando supera el límite superior, se activa el sistema de ventilación. Dentro del rango definido, el sistema mantiene el último estado de los actuadores, lo cual evita conmutaciones rápidas y reduce el desgaste de los dispositivos. Este comportamiento corresponde a un controlador tipo disparador de Schmitt, ampliamente utilizado en sistemas donde se desea estabilidad frente a pequeñas perturbaciones.
+### Costos
 
-Para la medición de masa, el sistema emplea un módulo HX711 acoplado a una celda de carga. Se implementa un proceso de tara automática posterior al arranque del sistema, con un retardo de seis segundos para permitir la estabilización de la señal. Adicionalmente, se aplica un filtro digital de tipo pasa-bajos (IIR de primer orden).
+El sistema construido se divide en tres componentes principales: electrónica, estructura física y parte eléctrica.
 
-Este filtrado reduce significativamente el ruido en la señal de peso, mejorando la estabilidad de la medición y la confiabilidad de los datos mostrados.
 
-El sistema incluye indicadores visuales mediante LEDs para informar el estado de la temperatura. Un LED azul indica que la variable se encuentra dentro del rango de operación, mientras que un LED rojo señala condiciones fuera de especificación. Tambien, se implementa una interfaz gráfica mediante una pantalla OLED, en la cual se muestran los valores de temperatura y peso, mejorando la interacción con el usuario.
+| Componente            | Elementos incluidos                                          | Costo (COP)  |
+|----------------------|-------------------------------------------------------------|--------------|
+| **Parte electrónica**| DHT22, HX711, capacitores, LM317, resistencias, módulos relé | $60.900      |
+| **Caja (estructura)**| Caja plástica (40 × 20 × 22 cm)                             | $20.000      |
+| **Parte eléctrica**  | Bombillo de calor, roseta, cableado y enchufe               | $19.500      |
+| **TOTAL**            | Sistema completo                                            | **$100.400** |
+
+El costo total del sistema es de **$100.400 COP**, lo cual representa una solución de muy bajo costo frente a equipos médicos reales.
+
+- **Parte electrónica:** ≈ 60.6% del costo total  
+- **Estructura (caja):** ≈ 19.9%  
+- **Parte eléctrica:** ≈ 19.4%  
+
+### Comparación con incubadoras comerciales
+
+Las incubadoras neonatales comerciales (como las de Dräger, Instrumentalia S.A.S. y LEEX Medical) incluyen características avanzadas como:
+
+- Control de temperatura de alta precisión (PID)
+- Sensores múltiples (temperatura, humedad, SpO₂, ECG)
+- Control de oxígeno
+- Sistemas de humidificación
+- Alarmas y seguridad redundante
+- Diseño térmico especializado (doble pared)
+
+
+### Comparación general
+
+| Característica         | Sistema desarrollado | Incubadora comercial                 |
+|----------------------|--------------------|------------------------------------|
+| Costo                | ~$100.400 COP      | Millones de COP                    |
+| Control              | ON/OFF             | PID / avanzado                     |
+| Variables            | Temp, peso         | Temp, SpO₂, ECG, humedad, etc.     |
+| Seguridad            | Básica             | Alta (alarmas, redundancia)        |
+| Certificación        | No                 | Sí                                 |
+| Precisión            | Media-baja         | Alta                               |
+
+
+
+## PARTE C
 
 ### ¿Qué otras variables son críticas en el monitoreo neonatal?
 
