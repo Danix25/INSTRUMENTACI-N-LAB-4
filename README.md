@@ -79,8 +79,8 @@ Para la regulación del clima interno, se implementó un sistema de control de t
 Con el fin de supervisar la variable térmica, se incorporó una interfaz basada en una pantalla OLED, la cual permite visualizar en tiempo real la temperatura interna de la incubadora. Adicionalmente, se implementaron dos indicadores luminosos (LED): un LED azul que se enciende cuando la temperatura se encuentra dentro del rango normal establecido (36 °C a 37,5 °C), y un LED rojo que indica condiciones fuera de dicho rango.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/604aabbd-80be-4148-9d67-b5702ab73d03" width="200">
-  <img src="https://github.com/user-attachments/assets/ab0c1c44-29c5-4bf3-8c0a-142acee40a7e" width="200">
+  <img src="https://github.com/user-attachments/assets/604aabbd-80be-4148-9d67-b5702ab73d03" width="400">
+  <img src="https://github.com/user-attachments/assets/ab0c1c44-29c5-4bf3-8c0a-142acee40a7e" width="400">
 </p>
 
 
