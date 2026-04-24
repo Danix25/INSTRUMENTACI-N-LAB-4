@@ -84,6 +84,9 @@ Para la medición del peso del neonato, se integró una celda de carga acoplada 
 
 Lo anterior permite obtener lecturas digitales precisas del estado del neonato, facilitando el seguimiento continuo de su crecimiento y desarrollo.
 
+<div align="center">
+<img width="960" height="1280" alt="image" src="https://github.com/user-attachments/assets/cde06d92-010a-4ab9-be8b-7e2e8eb1130e" />
+</div>
 
 ## PARTE C
 
@@ -267,6 +270,17 @@ El sistema incluye indicadores visuales mediante LEDs para informar el estado de
 Ambos dispositivos tienen como objetivo principal mantener la estabilidad térmica del neonato, proporcionando un entorno controlado que compense la limitada capacidad de termorregulación del recién nacido, en segundo lugar, ambos sistemas operan mediante mecanismos de control en lazo cerrado, donde la temperatura medida se compara con un valor de referencia, ajustando la acción de los actuadores para corregir desviaciones. 
 
 La integración de sistemas de monitoreo, que permiten supervisar variables fisiológicas y ambientales relevantes. Tanto la incubadora como la servo-cuna pueden incorporar sensores adicionales (como frecuencia cardíaca, saturación de oxígeno o peso), así como interfaces de visualización para el personal médico, también ambos dispositivos incluyen sistemas de alarma y seguridad, diseñados para alertar sobre condiciones anómalas, como sobrecalentamiento, fallas en sensores o interrupciones en el suministro eléctrico, garantizando la protección del neonato.
+
+## CONCLUSIONES 
+
+- Se comprendió la importancia del control preciso de variables físicas en el cuidado del recién nacido, especialmente en condiciones de vulnerabilidad como la prematuridad. En particular, se evidenció que la temperatura es un factor crítico, ya que pequeñas variaciones pueden comprometer la estabilidad fisiológica del neonato, lo cual justifica la necesidad de sistemas de control confiables y continuos.
+
+- El sistema implementado demostró que es posible emular el funcionamiento básico de una incubadora mediante un esquema de control ON/OFF con histéresis, logrando mantener la temperatura dentro de un rango adecuado. Asimismo, la integración de sensores como el de temperatura y el de peso permitió establecer un sistema de monitoreo funcional, capaz de proporcionar información relevante en tiempo real. El uso de filtrado digital en la señal de masa evidenció la importancia del procesamiento de señales para mejorar la calidad de las mediciones.
+
+- Pero se encontraron limitantes importantes en el sistema desarrollado, como que falta un control avanzado (como PID), la falta de monitoreo de variables adicionales críticas (humedad, oxigenación, frecuencia cardíaca), y el uso de técnicas de programación bloqueantes que limitan el desempeño en tiempo real.
+
+- La implementación de una incubadora neonatal real requiere no solo mejoras técnicas, sino también el cumplimiento de estrictos estándares de seguridad, confiabilidad y certificación. Aspectos como la redundancia de sistemas, la incorporación de alarmas, el uso de sensores de grado médico y el diseño físico adecuado son indispensables para garantizar la protección del paciente.
+
 
 
 # REFERENCIAS
