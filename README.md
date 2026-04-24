@@ -78,10 +78,10 @@ Con el fin de supervisar la variable térmica, se incorporó una interfaz basada
 <img width="464" height="441" alt="image" src="https://github.com/user-attachments/assets/259c4ae3-d46d-45a8-a330-8e17b29f237c" />
 </div>
 
-<div align="center">
-<img width="400" height="350" alt="image" src="https://github.com/user-attachments/assets/604aabbd-80be-4148-9d67-b5702ab73d03" />
-<img width="400" height="350" alt="image" src="https://github.com/user-attachments/assets/ab0c1c44-29c5-4bf3-8c0a-142acee40a7e" />
-</div>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/604aabbd-80be-4148-9d67-b5702ab73d03" width="400" height="350">
+  <img src="https://github.com/user-attachments/assets/ab0c1c44-29c5-4bf3-8c0a-142acee40a7e" width="400" height="350">
+</p>
 
 
 ### Montaje sistema de pesaje
