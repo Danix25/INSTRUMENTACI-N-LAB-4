@@ -93,15 +93,11 @@ Para la medición del peso del neonato, se integró una celda de carga acoplada 
 
 Lo anterior permite obtener lecturas digitales precisas del estado del neonato, facilitando el seguimiento continuo de su crecimiento y desarrollo.
 
-<div align="center">
-<img width="464" height="464" alt="image" src="https://github.com/user-attachments/assets/cde06d92-010a-4ab9-be8b-7e2e8eb1130e" />
-</div>
-
 Durante la presentación, se corroboró el funcionamiento del sensor, evidenciando que al aplicar una pequeña carga se obtenían valores coherentes. Sin embargo, al incrementar significativamente el peso, las mediciones dejaron de ser consistentes.
 
 Esto se atribuye a que, para un funcionamiento óptimo, la celda de carga debe permanecer completamente fija y correctamente acoplada a la estructura. En nuestro caso, se utilizó cinta adhesiva para su sujeción, la cual se desprendió parcialmente al momento de aplicar la carga, impidiendo que el sensor se deformara de manera adecuada. Como consecuencia, se presentaron lecturas incorrectas o inconsistentes.
 
-### Algoritmo
+### Algoritmo Y circuito
 
 ```cpp
 #include <Wire.h>
@@ -246,6 +242,12 @@ void loop() {
 El código implementado en la ESP32 fue este, donde se realiza el control de una incubadora mediante la lectura de temperatura con un sensor DHT22 y la medición de peso con una celda de carga HX711. A partir de la temperatura medida, el sistema activa automáticamente un calefactor o un ventilador dependiendo del rango establecido: si la temperatura es menor a 36 °C se enciende el calefactor, y si supera los 37,5 °C se activa el ventilador para disminuir el calor interno. Además, se utilizan dos LEDs como indicadores de estado, donde el LED verde señala que la temperatura está dentro del rango normal (36 a 37,5 °C) y el LED rojo indica condiciones fuera de este.
 
 Por otro lado, el sistema también integra una pantalla OLED en la cual se visualizan en tiempo real tanto la temperatura como el peso medido, permitiendo un monitoreo continuo. La lectura del peso se filtra para obtener valores más estables y se realiza una tara automática al inicio para mejorar la precisión del sensor. En conjunto, el código permite el control y supervisión básica de las condiciones internas de la incubadora de forma automática.
+
+<div align="center">
+<img width="464" height="464" alt="image" src="https://github.com/user-attachments/assets/cde06d92-010a-4ab9-be8b-7e2e8eb1130e" />
+</div>
+
+Por otro lado, en cuanto al circuito, inicialmente se empleó un transformador junto con un circuito fuente para obtener 12 VDC, los cuales se utilizaron para la alimentación del ventilador. Por otra parte, la ESP32 fue alimentada mediante una power bank a 5 V, la cual a su vez suministraba energía tanto a los sensores de temperatura y peso como a los módulos de relé.
 
 ### Costos
 
