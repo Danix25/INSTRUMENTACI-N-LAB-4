@@ -48,6 +48,8 @@ Con el fin de garantizar la fiabilidad de la medición, se incorporó un módulo
 <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/4cc03b1c-3750-46ac-98ca-81ebd1f981f9" />
 </div>
 
+Posteriormente, la información obtenida sobre la masa del bebé y la temperatura de la incubadora se muestra en una pantalla OLED.
+
 ## Parte B
 
 Para la materialización del prototipo, se inició con el montaje estructural de la cabina de la incubadora, concebida como el entorno destinado a la protección del neonato. En esta etapa, el enfoque principal estuvo orientado a la integración de todos los sistemas previamente diseñados en una única plataforma funcional, garantizando que la estructura permitiera una adecuada distribución térmica, así como el soporte mecánico necesario para el sistema de pesaje.
